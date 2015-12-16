@@ -489,7 +489,7 @@ module GrapeSwagger
         end
 
         ops = visible_ops.group_by do |route|
-          @@documentation_class.parse_path(route.route_path, api_version)
+          @@documentation_class.parse_path(route.route_path, route.route_version.to_s)
         end
 
         error!('Not Found', 404) unless ops.any?
